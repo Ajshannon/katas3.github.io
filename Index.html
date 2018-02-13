@@ -24,29 +24,29 @@
 
         //Step 1
         function add(x, y) {
-            x = 2;
-            y = 4;
-            printResult(x + y);
+            return x + y;
         }
-        add();
+        printResult(add(2, 4))
 
         //Step 2
-        function multiply() {
+        function multiply(x, y) {
             let j = 0;
-            for (i = 0; i <= 5; i++) {
-                j += 8;
+            for (let i = 0; i < y; i = add(i, 1)) {
+                // j += x;
+                j = add(j, x);
             }
-            printResult(j);
+            return j;
         }
-        multiply();
+        printResult(multiply(5, 8));
 
         //Step 3
 
         function power(x, n) {
             let sum = 0;
             let i;
-            for (i = 0; i !== n; i++) {
-                sum += (x * x) * n;
+            for (i = 0; i !== n; i = add(i, 1)) {
+                // sum += (x * x) * n;
+                sum = add(sum, multiply(n, multiply(x, x)));
             }
             printResult(sum);
         }
@@ -68,18 +68,25 @@
             for (i = 0; i<factors.length; i++){
                 sum *= factors[i]; 
             }
-            newContent = printResult(sum) + printResult(factors);
-            newContent.appendChild(step4);
-            destination.appendChild(step4);
+            printResult(sum);
+            printResult(factors);
         }
 
         factorial(5);
 
         //step 5
 
-        function fibonacci(){
-            
+        function fibonacci(x){
+            let factors = [0, 1];
+            for(let i = 2; i < x; i = add(i, 1)){
+                let lastValue = factors[add(i , -1)];
+                let secondToLastValue = factors[add(i, -2)];
+                factors[i] = add(lastValue, secondToLastValue); 
+            }
+            return factors[factors.length - 1];
         }
+        
+        printResult(fibonacci(8));
 
     </script>
 </body>
