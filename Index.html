@@ -66,7 +66,8 @@
                 
             } 
             for (i = 0; i<factors.length; i++){
-                sum *= factors[i]; 
+                // sum *= factors[i]; 
+                sum = multiply(sum, factors[i]);
             }
             printResult(sum);
             printResult(factors);
@@ -78,13 +79,22 @@
 
         function fibonacci(x){
             let factors = [0, 1];
-            for(let i = 2; i < x; i = add(i, 1)){
-                let lastValue = factors[add(i , -1)];
-                let secondToLastValue = factors[add(i, -2)];
-                factors[i] = add(lastValue, secondToLastValue); 
+            for(let i = 2; i < x; i++) {
+                factors[i] = factors[i - 1] + factors[i - 2]; 
             }
             return factors[factors.length - 1];
         }
+
+        // function fibonacci(x){
+        //     let factors = [0, 1];
+        //     for(let i = 2; i < x; i = add(i, 1)) {
+        //         let lastValue = factors[add(i , -1)];
+        //         let secondToLastValue = factors[add(i, -2)];
+        //         factors[i] = add(lastValue, secondToLastValue); 
+        //     }
+        //     const lastIndex = add(factors.length, -1);
+        //     return factors[lastIndex];
+        // }
         
         printResult(fibonacci(8));
 
