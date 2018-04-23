@@ -42,19 +42,27 @@
         //Step 3
 
         function power(x, n) {
-            let sum = 0;
-            let i;
-            for (i = 0; i !== n; i = add(i, 1)) {
-                // sum += (x * x) * n;
-                sum = add(sum, multiply(n, multiply(x, x)));
+
+            // for (i = 0; i !== n; i = add(i, 1)) {
+            //     sum += (x * x) * n;
+            //     // sum = add(sum, multiply(n, multiply(x, x)));
+            // }
+            // printResult(sum);
+            let times = 0;
+            let result = 1;
+            for (let count = 0; count < n; count++) {
+                times++
+                result = multiply(x, result)
+                console.log(result);
             }
-            printResult(sum);
+            console.log(times);
+            return result;
         }
-        power(2, 8);
+        printResult(power(3, 4));
 
         //Step 4
         let step4 = document.createElement("div")
-        
+
         function factorial(x) {
             let factors = [];
             let i;
@@ -63,9 +71,9 @@
             let newContent;
             for (j = 1; j !== x + 1; j++) {
                 factors.push(j);
-                
-            } 
-            for (i = 0; i<factors.length; i++){
+
+            }
+            for (i = 0; i < factors.length; i++) {
                 // sum *= factors[i]; 
                 sum = multiply(sum, factors[i]);
             }
@@ -77,10 +85,10 @@
 
         //step 5
 
-        function fibonacci(x){
+        function fibonacci(x) {
             let factors = [0, 1];
-            for(let i = 2; i < x; i++) {
-                factors[i] = factors[i - 1] + factors[i - 2]; 
+            for (let i = 2; i < x; i++) {
+                factors[i] = factors[i - 1] + factors[i - 2];
             }
             return factors[factors.length - 1];
         }
@@ -95,9 +103,8 @@
         //     const lastIndex = add(factors.length, -1);
         //     return factors[lastIndex];
         // }
-        
-        printResult(fibonacci(8));
 
+        printResult(fibonacci(8));
     </script>
 </body>
 
